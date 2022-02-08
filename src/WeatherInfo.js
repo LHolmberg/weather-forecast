@@ -23,7 +23,7 @@ class WeatherHelper extends React.Component {
 
     componentDidMount() {
         fetch(
-            "http://api.openweathermap.org/geo/1.0/direct?q="+this.props.city.replace(/ /g, '_') +"&limit=5&appid=ebd7ba44716d363e4cf939b5c8a73e46")
+            "http://api.openweathermap.org/geo/1.0/direct?q="+this.props.city.replace(/ /g, '_') +"&limit=5&appid=ebd7ba44716d363e4cf939b5c8a73e46/")
             .then((geoRes) => geoRes.json())
             .then((geoJson) => {
                 fetch(
