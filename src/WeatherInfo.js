@@ -23,15 +23,11 @@ class WeatherHelper extends React.Component {
 
     componentDidMount() {
         fetch(
-            "https://api.openweathermap.org/geo/1.0/direct?q="+this.props.city.replace(/ /g, '_') +"&limit=5&appid=ebd7ba44716d363e4cf939b5c8a73e46/", {
-                headers: {'Access-Control-Allow-Origin': '*'}
-            })
+            "https://api.openweathermap.org/geo/1.0/direct?q="+this.props.city.replace(/ /g, '_') +"&limit=5&appid=ebd7ba44716d363e4cf939b5c8a73e46/")
             .then((geoRes) => geoRes.json())
             .then((geoJson) => {
                 fetch(
-                    "https://weather-react-api.vercel.app/forecast/coords/" + geoJson[0]["lat"] + "," + geoJson[0]["lon"], { 
-                        headers: {'Access-Control-Allow-Origin': '*'}
-                    })
+                    "https://weather-react-api.vercel.app/forecast/coords/" + geoJson[0]["lat"] + "," + geoJson[0]["lon"])
                     .then((weatherRes) => weatherRes.json())
                     .then((weatherJson) => {
                         this.setState({
